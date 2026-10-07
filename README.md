@@ -27,6 +27,25 @@ This is a ZIP metadata preflight, not a malware scanner, antivirus, full game va
 
 The descriptor and root-layout checks target the usual local Clausewitz/Paradox mod layout. Workshop packaging and title-specific layouts vary, so a warning can be a false positive. Review the archive source and the target game's installation instructions.
 
+## Support / Pro Version
+
+ModPack Inspector stays free and open source. For mod authors who want a ready-to-use release workflow, the **Mod Pack Release QA Kit** is a separate paid documentation pack with a release checklist, release-notes template, bug-report form, and archive-layout manifest. It costs 50 ₽ as a one-time purchase on [Boosty](https://boosty.to/azizazimov/posts/be3aa1f6-724e-44b4-9898-4bfca8944a9a).
+
+If this tool is useful, you can also support development on [Boosty](https://boosty.to/azizazimov). The source code and updates remain available on [GitHub](https://github.com/GhosTnever-lkm).
+
+<details>
+<summary>Public crypto addresses</summary>
+
+Send only assets on the matching network.
+
+| Network | Address |
+|:--|:--|
+| Bitcoin | `bc1qn75pj4n7gyl2k5kf2f97elvyenz52q6nn2g30u` |
+| TRON | `TCBSy38X57hA6w2onJcxom24x1febc1mP1` |
+| BNB Smart Chain | `0xD431a917961E0b086B96D9F72b5C8fF19b19068a` |
+
+</details>
+
 ## Development
 
 No build or dependency installation is required. Edit `index.html`, `styles.css`, or `app.js`, then reload the page. All processing is client-side.

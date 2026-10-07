@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#11151b">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="ModPack Inspector — проверка ZIP-архивов модов перед распаковкой. Анализ структуры и путей прямо в браузере.">
+  <title>ModPack Inspector — проверка архивов модов</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%2369d5ae'/%3E%3Cpath d='M12 13h16v14H12zM16 10v6m8-6v6m-8 10v5m8-5v5' stroke='%230e1720' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">⬡</span><span>Mod<span class="brand-accent">Pack</span> Inspector</span></a>
+      <nav><a href="#checks">Проверки</a><a href="#privacy">Приватность</a></nav>
+      <button class="button button-quiet" id="language-toggle" type="button" aria-label="Switch language">EN</button>
+    </header>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><i></i><span data-i18n="eyebrow">БЕСПЛАТНО · ЛОКАЛЬНО · ДО РАСПАКОВКИ</span></div>
+          <h1 data-i18n="heroTitle">Сначала проверь.<br><span>Потом устанавливай.</span></h1>
+          <p data-i18n="heroText">Проверь архив мода, пока он ещё ZIP: найди неправильную структуру, отсутствующий descriptor, повторяющиеся файлы и подозрительные пути.</p>
+          <div class="hero-points"><span>✓ <b data-i18n="pointOne">Архив не распаковывается</b></span><span>✓ <b data-i18n="pointTwo">Работает без отправки файла</b></span></div>
+        </div>
+        <div class="hero-visual" aria-hidden="true"><div class="orbit"></div><div class="zip-card"><div class="zip-top"><span>MOD_ARCHIVE.ZIP</span><b>ZIP</b></div><div class="zip-row"><i class="folder">▰</i><span>common/</span><em>OK</em></div><div class="zip-row"><i class="folder">▰</i><span>events/</span><em>OK</em></div><div class="zip-row warn"><i>!</i><span>outer-folder/mod/</span><em>CHECK</em></div><div class="zip-footer">⛨ <span>Пути проверены до извлечения</span></div></div><div class="float-note">0 файлов отправлено</div></div>
+      </section>
+      <section class="workspace">
+        <div class="section-head"><div><div class="eyebrow muted" data-i18n="scanLabel">БЫСТРАЯ ПРОВЕРКА</div><h2 data-i18n="scanTitle">Выбери архив мода</h2></div><button class="text-button" id="demo-button" type="button">✦ <span data-i18n="demoButton">Показать пример</span></button></div>
+        <label class="dropzone" id="dropzone" for="zip-file"><span class="upload-icon">↑</span><strong data-i18n="dropTitle">Перетащи ZIP сюда или выбери файл</strong><span data-i18n="dropHint">Архив анализируется прямо в браузере и никуда не загружается</span><small>.zip · до 500 МБ · обзор до 100 000 файлов</small><input id="zip-file" type="file" accept=".zip,application/zip" hidden></label>
+        <div class="error" id="error" role="alert" hidden></div>
+        <section class="results" id="results" aria-live="polite" hidden><div class="results-head"><div><div class="eyebrow muted" data-i18n="reportLabel">ОТЧЁТ ПО АРХИВУ</div><h2 id="report-title">Результат</h2></div><button class="button button-secondary" id="download-report" type="button" data-i18n="download">Скачать отчёт</button></div><div class="stats" id="stats"></div><div class="verdict" id="verdict"></div><div class="issue-list" id="issue-list"></div><details class="file-details"><summary data-i18n="filesTitle">Список содержимого архива</summary><div id="file-list"></div></details></section>
+      </section>
+      <section class="checks" id="checks"><div><div class="eyebrow muted" data-i18n="checksLabel">ЧТО ИМЕННО ПРОВЕРЯЕТСЯ</div><h2 data-i18n="checksTitle">Понятный отчёт<br><span>до одного клика по Extract</span></h2></div><div class="check-grid"><article><b>01</b><h3 data-i18n="check1Title">Структура и descriptor</h3><p data-i18n="check1Text">Ищет descriptor.mod и предупреждает о лишнем внешнем уровне папок, который мешает лаунчеру.</p></article><article><b>02</b><h3 data-i18n="check2Title">Безопасность путей</h3><p data-i18n="check2Text">Отмечает пути за пределами архива, абсолютные пути и подозрительно крупные записи.</p></article><article><b>03</b><h3 data-i18n="check3Title">Дубли и аномалии</h3><p data-i18n="check3Text">Находит повторные имена файлов, пустой архив и необычно высокую степень сжатия.</p></article></div></section>
+      <section class="privacy" id="privacy"><div class="privacy-icon">⛨</div><div><h2 data-i18n="privacyTitle">Твой архив остаётся у тебя</h2><p data-i18n="privacyText">Страница читает только центральный каталог ZIP, не извлекает файлы и не отправляет содержимое на сервер. Поддерживаются ZIP64 и защищённые паролем архивы.</p></div><span>LOCAL ONLY</span></section>
+    </main>
+    <footer><a class="brand" href="#top"><span class="brand-mark">⬡</span><span>Mod<span class="brand-accent">Pack</span> Inspector</span></a><span data-i18n="footer">Открытый код · бесплатный инструмент для моддеров</span><a href="https://github.com/GhosTnever-lkm/modpack-inspector" target="_blank" rel="noreferrer">GitHub ↗</a></footer>
+  </div>
+</body>
+</html>

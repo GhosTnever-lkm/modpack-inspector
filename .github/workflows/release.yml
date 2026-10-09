@@ -23,7 +23,7 @@ jobs:
           version="${GITHUB_REF_NAME#v}"
           folder="ModPack-Inspector-${version}"
           mkdir -p "release/${folder}"
-          cp -r index.html app.js zip-path.mjs styles.css README.md LICENSE VERSION CHANGELOG.md .nojekyll docs "release/${folder}/"
+          cp -r index.html app.js zip-path.mjs styles.css README.md LICENSE VERSION CHANGELOG.md package.json tests .nojekyll docs "release/${folder}/"
           (cd release && zip -qr "../${folder}.zip" "${folder}")
           sha256sum "${folder}.zip" > "${folder}.zip.sha256"
           printf 'folder=%s\n' "$folder" >> "$GITHUB_OUTPUT"

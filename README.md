@@ -1,12 +1,12 @@
 # ModPack Inspector
 
-**A private, in-browser ZIP preflight for mod archives.** [Download the latest release](https://github.com/GhosTnever-lkm/modpack-inspector/releases/latest/download/ModPack-Inspector-0.1.0.zip). Inspect archive paths and layout before extracting a downloaded mod.
+**A private, in-browser ZIP preflight for mod archives.** [Download the latest release](https://github.com/GhosTnever-lkm/modpack-inspector/releases/latest/download/ModPack-Inspector-0.1.1.zip). Inspect archive paths and layout before extracting a downloaded mod.
 
 The app reads the ZIP central directory in your browser. It does not extract entries, upload the archive, or load third-party scripts or fonts. A strict Content Security Policy blocks network connections from the page.
 
 ## Use it
 
-Use the [GitHub Pages demo](https://ghostnever-lkm.github.io/modpack-inspector/?demo), download the complete [release ZIP](https://github.com/GhosTnever-lkm/modpack-inspector/releases/latest/download/ModPack-Inspector-0.1.0.zip), or serve this folder over localhost. Browser modules may be blocked when `index.html` is opened directly with `file://`. Click **Показать пример / Show example** to see a sample report. Add `?demo` to the URL to load the example automatically.
+Use the [GitHub Pages demo](https://ghostnever-lkm.github.io/modpack-inspector/?demo), download the complete [release ZIP](https://github.com/GhosTnever-lkm/modpack-inspector/releases/latest/download/ModPack-Inspector-0.1.1.zip), or serve this folder over localhost. Browser modules may be blocked when `index.html` is opened directly with `file://`. Click **Показать пример / Show example** to see a sample report. Add `?demo` to the URL to load the example automatically.
 
 GitHub Pages demo: https://ghostnever-lkm.github.io/modpack-inspector/?demo
 

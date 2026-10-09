@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 - 2026-10-09
+
+- Include `package.json` and the regression tests in the release ZIP so the documented `npm test` command works from the downloaded source bundle.
+
 ## 0.1.0 - 2026-10-09
 
 - Add Windows-aware archive path normalization so backslash traversal and absolute paths are reported consistently.

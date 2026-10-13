@@ -1,3 +1,8 @@
+## 0.1.2 - 2026-10-13
+
+- Make ZIP selection keyboard-accessible with Enter and Space and add visible keyboard focus.
+- Run tests and JavaScript syntax checks on pull requests and main across Node.js 22 and 24.
+
 # Changelog
 
 ## 0.1.1 - 2026-10-09

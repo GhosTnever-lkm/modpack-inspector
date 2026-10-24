@@ -4,13 +4,21 @@ import { inspectArchivePath } from '../zip-path.mjs';
 
 test('flags parent traversal using Windows separators', () => {
   assert.deepEqual(inspectArchivePath('mod\\..\\outside.txt'), {
-    normalized: 'mod/../outside.txt', absolute: false, escapesRoot: true
+    normalized: 'mod/../outside.txt', driveQualified: false, absolute: false, escapesRoot: true
   });
 });
 
 test('flags absolute drive and UNC paths written with backslashes', () => {
   assert.equal(inspectArchivePath('C:\\Windows\\system.ini').absolute, true);
+  assert.equal(inspectArchivePath('C:\\Windows\\system.ini').driveQualified, true);
   assert.equal(inspectArchivePath('\\\\server\\share\\mod.zip').absolute, true);
+});
+
+test('flags drive-relative paths without treating them as ordinary relative paths', () => {
+  const path = inspectArchivePath('C:mods\\example.zip');
+  assert.equal(path.driveQualified, true);
+  assert.equal(path.absolute, false);
+  assert.equal(path.escapesRoot, false);
 });
 
 test('flags POSIX absolute paths and parent segments at every depth', () => {
@@ -20,6 +28,6 @@ test('flags POSIX absolute paths and parent segments at every depth', () => {
 
 test('keeps ordinary nested archive paths', () => {
   assert.deepEqual(inspectArchivePath('mod/common/ideas/example.txt'), {
-    normalized: 'mod/common/ideas/example.txt', absolute: false, escapesRoot: false
+    normalized: 'mod/common/ideas/example.txt', driveQualified: false, absolute: false, escapesRoot: false
   });
 });

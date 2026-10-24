@@ -1,3 +1,7 @@
+## 0.1.3 - 2026-10-25
+
+- Detect drive-qualified ZIP paths such as `C:folder\file` and report them separately from ordinary relative paths.
+
 ## 0.1.2 - 2026-10-13
 
 - Make ZIP selection keyboard-accessible with Enter and Space and add visible keyboard focus.

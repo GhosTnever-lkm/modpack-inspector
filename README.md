@@ -2,13 +2,13 @@
 
 [![CI](https://github.com/GhosTnever-lkm/modpack-inspector/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/GhosTnever-lkm/modpack-inspector/actions/workflows/ci.yml)
 
-**A local-first, in-browser ZIP preflight for mod archives.** [Download the latest release](https://github.com/GhosTnever-lkm/modpack-inspector/releases/latest/download/ModPack-Inspector-0.1.2.zip). Inspect archive paths and layout before extracting a downloaded mod.
+**A local-first, in-browser ZIP preflight for mod archives.** [Download the latest release](https://github.com/GhosTnever-lkm/modpack-inspector/releases/latest/download/ModPack-Inspector-0.1.3.zip). Inspect archive paths and layout before extracting a downloaded mod.
 
 The app reads the ZIP central directory in your browser. It does not extract entries, upload the archive, or load third-party scripts or fonts. A strict Content Security Policy blocks network connections from the page.
 
 ## Use it
 
-Use the [GitHub Pages demo](https://ghostnever-lkm.github.io/modpack-inspector/?demo), download the complete [release ZIP](https://github.com/GhosTnever-lkm/modpack-inspector/releases/latest/download/ModPack-Inspector-0.1.2.zip), or serve this folder over localhost. Browser modules may be blocked when `index.html` is opened directly with `file://`. Click **Показать пример / Show example** to see a sample report. Add `?demo` to the URL to load the example automatically.
+Use the [GitHub Pages demo](https://ghostnever-lkm.github.io/modpack-inspector/?demo), download the complete [release ZIP](https://github.com/GhosTnever-lkm/modpack-inspector/releases/latest/download/ModPack-Inspector-0.1.3.zip), or serve this folder over localhost. Browser modules may be blocked when `index.html` is opened directly with `file://`. Click **Показать пример / Show example** to see a sample report. Add `?demo` to the URL to load the example automatically.
 
 GitHub Pages demo: https://ghostnever-lkm.github.io/modpack-inspector/?demo
 
@@ -16,7 +16,7 @@ GitHub Pages demo: https://ghostnever-lkm.github.io/modpack-inspector/?demo
 
 - ZIP signature and central-directory bounds.
 - `descriptor.mod` presence and a common extra outer-folder layout.
-- Absolute paths and `..` traversal segments that can escape the archive root.
+- Absolute and drive-qualified paths, plus `..` traversal segments that can escape the archive root.
 - Duplicate names, empty archives, unusually large expanded entries, and extreme compression ratios.
 - ZIP64 and encrypted entries are identified and reported.
 - A local text report can be downloaded on demand.

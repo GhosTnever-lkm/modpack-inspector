@@ -3,6 +3,7 @@ export function inspectArchivePath(rawName) {
   const normalized = String(rawName ?? '').replace(/\\/g, '/');
   return {
     normalized,
+    driveQualified: /^[a-z]:/i.test(normalized),
     absolute: normalized.startsWith('/') || /^[a-z]:\//i.test(normalized),
     escapesRoot: normalized.split('/').includes('..')
   };
